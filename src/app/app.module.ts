@@ -11,6 +11,9 @@ import { AppComponent } from './app.component';
 
 import { AppReducer } from './state/app.reducer';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,6 +23,8 @@ import { AppReducer } from './state/app.reducer';
     StoreModule.forRoot({
       app: AppReducer
     }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
     EffectsModule,
     StoreDevtoolsModule.instrument({
       name: 'Connect App Devtools',
