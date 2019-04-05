@@ -2,10 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>PoisonIvy</title>
+  <title>Poison Ivy</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCcck1dDCfqiX-JOh_UtaDMFt-P2RXRYsY",
+      authDomain: "poison-ivy-d163e.firebaseapp.com",
+      databaseURL: "https://poison-ivy-d163e.firebaseio.com",
+      projectId: "poison-ivy-d163e",
+      storageBucket: "poison-ivy-d163e.appspot.com",
+      messagingSenderId: "155342203823"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>

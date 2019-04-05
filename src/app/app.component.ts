@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { AngularFireDatabase } from '@angular/fire/database';
 
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     const dataFireBasePreviewMessenger = this.db.object('/messenger');
     dataFireBasePreviewMessenger.valueChanges().subscribe(messenger => {
       console.log('messenger', messenger);
-  });
+    });
     this.getLocation();
   }
 
@@ -41,11 +41,11 @@ export class AppComponent implements OnInit {
     }
   }
 
-  rad = function(x) {
+  rad = function (x) {
     return x * Math.PI / 180;
   };
-  
-  getDistance = function(p1, p2) {
+
+  getDistance = function (p1, p2) {
     const R = 6378137; // Earth’s mean radius in meter
     const dLat = this.rad(this.lat - 21.016807);
     const dLong = this.rad(this.lng - 105.781904);

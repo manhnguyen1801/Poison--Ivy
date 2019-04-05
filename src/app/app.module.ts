@@ -10,6 +10,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 
 import { AppReducer } from './state/app.reducer';
+import { AuthenticationModule } from './authentication/auth.module';
+import { AppRoutingModule } from './app.routing.module';
+// import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -19,15 +22,19 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AppComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserModule,
+    AppRoutingModule,
+    AuthenticationModule,
+    // StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     StoreModule.forRoot({
       app: AppReducer
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    EffectsModule,
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
-      name: 'Connect App Devtools',
+      name: 'Poison Ivy Devtools',
       maxAge: 25,
       logOnly: environment.production
     })
@@ -35,4 +42,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}
