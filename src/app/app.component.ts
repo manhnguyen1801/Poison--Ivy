@@ -5,7 +5,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'poison-ivy';
@@ -37,15 +37,15 @@ export class AppComponent implements OnInit {
       },
         (error: PositionError) => console.log(error));
     } else {
-      alert("Geolocation is not supported by this browser.");
+      alert('Geolocation is not supported by this browser.');
     }
   }
 
-  rad = function (x) {
+  rad(x) {
     return x * Math.PI / 180;
-  };
+  }
 
-  getDistance = function (p1, p2) {
+  getDistance(p1, p2) {
     const R = 6378137; // Earth’s mean radius in meter
     const dLat = this.rad(this.lat - 21.016807);
     const dLong = this.rad(this.lng - 105.781904);
@@ -55,5 +55,5 @@ export class AppComponent implements OnInit {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const d = R * c;
     return d; // returns the distance in meter
-  };
+  }
 }

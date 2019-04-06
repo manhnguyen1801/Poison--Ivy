@@ -8,6 +8,8 @@ import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
+import { LandingModule } from './landing/landing.module';
+import { UserProfileModule } from './user-profile/user-profile.module';
 
 import { AppReducer } from './state/app.reducer';
 import { AuthenticationModule } from './authentication/auth.module';
@@ -16,13 +18,14 @@ import { AppRoutingModule } from './app.routing.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserModule,
     AppRoutingModule,
     AuthenticationModule,
@@ -37,7 +40,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
       name: 'Poison Ivy Devtools',
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    BrowserAnimationsModule,
+    LandingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
