@@ -1,0 +1,29 @@
+.image-upload {
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    border: 1px solid #f1f1f1;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+
+    .change__button {
+        position: absolute;
+        bottom: 0;
+        padding: 5px 27px;
+        text-align: center;
+        background-color: #f1f1f1;
+        opacity: 0.5;
+        font-size: 13px;
+        display: block;
+        margin: auto;
+        width: 100%;
+        cursor: pointer;
+    }
+    img {
+        height: 100%;
+    }
+}

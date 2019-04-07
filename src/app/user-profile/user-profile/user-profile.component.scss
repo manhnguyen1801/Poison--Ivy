@@ -1,29 +1,36 @@
-.avatar {
-    height: 200px;
-    width: 200px;
-    background-size: cover;
-    display: block;
-    margin: auto;
-    border-radius: 50%;
-    border: 1px solid #f1f1f1;
-    position: relative;
-    overflow: hidden;
 
-    .change__button {
-        position: absolute;
-        bottom: 0;
-        padding: 16px 27px;
-        text-align: center;
-        background-color: #f1f1f1;
-        opacity: 0.5;
-        font-size: 13px;
-        display: block;
-        margin: auto;
+
+.user-profile {
+    padding: 50px 10px 10px 10px;
+}
+mat-card {
+    margin-bottom: 5px;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.example-full-width {
+    mat-slider {
         width: 100%;
-        cursor: pointer;
     }
 }
 
-.user-profile {
-    padding-top: 50px;
+::ng-deep {
+    .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label, .mat-accent .mat-slider-track-fill {
+        background-color: #3f51b5;
+    }
+
+    .ng5-slider .ng5-slider-pointer, .ng5-slider .ng5-slider-pointer:after {
+        background-color: #3f51b5 !important;
+    }
+
+    .ng5-slider-bubble {
+        display: none !important;
+    }
+
+    .ng5-slider .ng5-slider-pointer {
+        outline: none;
+    }
 }

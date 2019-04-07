@@ -1,0 +1,8 @@
+
+  <div class="image-upload">
+    <img src="{{selectedImageUrl}}" alt="">
+    <input #fileUpload type="file" class="d-none" accept="image/*" (change)="uploadFile(fileUpload)"/>
+    <div class="change__button" (click)="uploadAvatar()">
+      Sửa ảnh đại diện
+    </div>
+  </div>

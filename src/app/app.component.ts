@@ -17,53 +17,40 @@ export class AppComponent implements OnInit {
   constructor(private db: AngularFireDatabase) { }
 
   ngOnInit() {
-    const dataFireBasePreviewMessenger = this.db.object('/messenger');
-    console.log('this.db', this.db);
-    dataFireBasePreviewMessenger.valueChanges().subscribe(messenger => {
-      console.log('messenger', messenger);
-    });
-    this.getLocation();
-    const storageRef = firebase.storage().ref();
-    const imagesRef =  storageRef.child('images');
-    console.log('imagesRef', imagesRef);
-    // tslint:disable-next-line:max-line-length
-    // imagesRef.getDownloadURL().then(url => {
-    //   console.log('url', url);
-    // });
   }
 
-  getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position: Position) => {
-        if (position) {
-          console.log('Latitude: ' + position.coords.latitude +
-            'Longitude: ' + position.coords.longitude);
-          this.lat = position.coords.latitude;
-          this.lng = position.coords.longitude;
-          console.log(this.lat);
-          console.log(this.lng);
-          console.log(this.getDistance(this.lat, this.lng));
-        }
-      },
-        (error: PositionError) => console.log(error));
-    } else {
-      alert('Geolocation is not supported by this browser.');
-    }
-  }
+  // getLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition((position: Position) => {
+  //       if (position) {
+  //         console.log('Latitude: ' + position.coords.latitude +
+  //           'Longitude: ' + position.coords.longitude);
+  //         this.lat = position.coords.latitude;
+  //         this.lng = position.coords.longitude;
+  //         console.log(this.lat);
+  //         console.log(this.lng);
+  //         console.log(this.getDistance(this.lat, this.lng));
+  //       }
+  //     },
+  //       (error: PositionError) => console.log(error));
+  //   } else {
+  //     alert('Geolocation is not supported by this browser.');
+  //   }
+  // }
 
-  rad(x) {
-    return x * Math.PI / 180;
-  }
+  // rad(x) {
+  //   return x * Math.PI / 180;
+  // }
 
-  getDistance(p1, p2) {
-    const R = 6378137; // Earth’s mean radius in meter
-    const dLat = this.rad(this.lat - 21.016807);
-    const dLong = this.rad(this.lng - 105.781904);
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(this.rad(this.lat)) * Math.cos(this.rad(21.016807)) *
-      Math.sin(dLong / 2) * Math.sin(dLong / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const d = R * c;
-    return d; // returns the distance in meter
-  }
+  // getDistance(p1, p2) {
+  //   const R = 6378137; // Earth’s mean radius in meter
+  //   const dLat = this.rad(this.lat - 21.016807);
+  //   const dLong = this.rad(this.lng - 105.781904);
+  //   const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+  //     Math.cos(this.rad(this.lat)) * Math.cos(this.rad(21.016807)) *
+  //     Math.sin(dLong / 2) * Math.sin(dLong / 2);
+  //   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  //   const d = R * c;
+  //   return d; // returns the distance in meter
+  // }
 }

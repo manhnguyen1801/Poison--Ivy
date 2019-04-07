@@ -1,9 +1,56 @@
-<div class="user-profile">
-  <div class="avatar" style="background-image: url('../../../assets/images/default-avatar.png');">
-    <img src="{{avatar}}" alt="">
-    <input #fileUpload type="file" class="d-none" accept="image/*" (change)="uploadFile(fileUpload)"/>
-    <div class="change__button" (click)="uploadAvatar()">
-      アバターを変更する
+<form class="user-profile">
+  <mat-card>
+    <app-image-upload (imageObjectChange)='setAvatar($event)'></app-image-upload>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Thông tin cá nhân</mat-card-title>
+    </mat-card-header>
+    <div class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Tên">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Tuổi">
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Giới tính</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let gender of genders" [value]="gender">
+              {{gender}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Giới thiệu bản thân"></textarea>
+      </mat-form-field>
     </div>
-  </div>
-</div>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Đối tượng muốn tìm kiếm</mat-card-title>
+    </mat-card-header>
+    <div class="example-form">
+      <mat-form-field>
+        <mat-label>Giới tính</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let gender of genders; let i = index" [value]="i">
+            {{gender}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Tuổi">
+      </mat-form-field>
+
+      <div class="example-full-width">
+        <mat-label>Khoảng cách: {{distance || 0}} km</mat-label>
+        <ng5-slider [(value)]="distance" [options]="options"></ng5-slider>
+      </div>
+    </div>
+  </mat-card>
+</form>
