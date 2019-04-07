@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AngularFireDatabase } from '@angular/fire/database';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -12,22 +13,31 @@ export class AppComponent implements OnInit {
   policies;
   public lat;
   public lng;
+  avatar;
   constructor(private db: AngularFireDatabase) { }
 
   ngOnInit() {
     const dataFireBasePreviewMessenger = this.db.object('/messenger');
+    console.log('this.db', this.db);
     dataFireBasePreviewMessenger.valueChanges().subscribe(messenger => {
       console.log('messenger', messenger);
     });
     this.getLocation();
+    const storageRef = firebase.storage().ref();
+    const imagesRef =  storageRef.child('images');
+    console.log('imagesRef', imagesRef);
+    // tslint:disable-next-line:max-line-length
+    // imagesRef.getDownloadURL().then(url => {
+    //   console.log('url', url);
+    // });
   }
 
   getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
         if (position) {
-          console.log("Latitude: " + position.coords.latitude +
-            "Longitude: " + position.coords.longitude);
+          console.log('Latitude: ' + position.coords.latitude +
+            'Longitude: ' + position.coords.longitude);
           this.lat = position.coords.latitude;
           this.lng = position.coords.longitude;
           console.log(this.lat);

@@ -6,6 +6,11 @@ import { LoginComponent } from './login/login.component';
 import { authReducer } from './state/auth.reducer';
 import { AuthEffect } from './state/auth.effect';
 import { AuthService } from './auth.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 const authRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,6 +24,11 @@ const authRoutes: Routes = [
     EffectsModule.forFeature(
       [AuthEffect]
     ),
+    CommonModule,
+    FormsModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   declarations: [
     LoginComponent

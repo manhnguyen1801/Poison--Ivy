@@ -1,3 +1,9 @@
-<p>
-  user-profile works!
-</p>
+<div class="user-profile">
+  <div class="avatar" style="background-image: url('../../../assets/images/default-avatar.png');">
+    <img src="{{avatar}}" alt="">
+    <input #fileUpload type="file" class="d-none" accept="image/*" (change)="uploadFile(fileUpload)"/>
+    <div class="change__button" (click)="uploadAvatar()">
+      アバターを変更する
+    </div>
+  </div>
+</div>
