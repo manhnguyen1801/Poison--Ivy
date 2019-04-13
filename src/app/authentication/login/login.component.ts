@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Store } from '@ngrx/store';
+import * as authActions from '../state/auth.action';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +12,15 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private store: Store<any>) { }
 
   ngOnInit() {
+    this.authService.user.subscribe(user => {
+      console.log(user);
+      this.store.dispatch(new authActions.LoginSuccessful({
+        userId: user.uid
+      }));
+    });
   }
 
   signup() {

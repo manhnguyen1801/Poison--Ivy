@@ -11,6 +11,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import { Ng5SliderModule } from 'ng5-slider';
 import { FormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [UserProfileComponent],
@@ -25,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatInputModule,
     Ng5SliderModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   exports: [UserProfileComponent]

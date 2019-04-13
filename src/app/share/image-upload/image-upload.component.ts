@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
 import * as firebase from 'firebase';
 
 @Component({
@@ -12,10 +12,13 @@ export class ImageUploadComponent implements OnInit {
   imageObject;
   @ViewChild('fileUpload') fileUpload: ElementRef;
   @Output() imageObjectChange = new EventEmitter();
+  @Input() imgUrl: string;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.imgUrl);
+    this.selectedImageUrl = this.imgUrl;
   }
 
   uploadAvatar() {

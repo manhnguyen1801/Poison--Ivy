@@ -1,6 +1,12 @@
-<form class="user-profile">
+<form class="user-profile" [formGroup]="userProfileForm">
+  <div class="example-button-row">
+    <mat-card class="user-profile__button-groups">
+      <button mat-raised-button>Close</button>
+      <button mat-raised-button color="primary" (click)="saveData()">Save</button>
+    </mat-card>
+  </div>
   <mat-card>
-    <app-image-upload (imageObjectChange)='setAvatar($event)'></app-image-upload>
+    <app-image-upload *ngIf="userAvatarUrl" [imgUrl]="userAvatarUrl" (imageObjectChange)='setAvatar($event)'></app-image-upload>
   </mat-card>
   <mat-card>
     <mat-card-header>
@@ -8,24 +14,27 @@
     </mat-card-header>
     <div class="example-form">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Tên">
+        <input matInput placeholder="Tên" name="name" formControlName="name" required>
+        <mat-error *ngIf="userProfileForm?.controls?.name?.errors?.required">This field is required</mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Tuổi">
+        <input matInput placeholder="Tuổi" name="age" formControlName="age" required>
+        <mat-error *ngIf="userProfileForm?.controls?.age?.errors?.required">This field is required</mat-error>
       </mat-form-field>
 
       <mat-form-field>
-          <mat-label>Giới tính</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let gender of genders" [value]="gender">
-              {{gender}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-    
+        <mat-label>Giới tính</mat-label>
+        <mat-select name="gender" id="gender" formControlName="gender" required>
+          <mat-option *ngFor="let gender of genders; let i = index" [value]="i">
+            {{gender}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="userProfileForm?.controls?.gender?.errors?.required">This field is required</mat-error>
+      </mat-form-field>
+
       <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Giới thiệu bản thân"></textarea>
+        <textarea rows="4" matInput placeholder="Giới thiệu bản thân" name="description" formControlName="description"></textarea>
       </mat-form-field>
     </div>
   </mat-card>
@@ -36,20 +45,27 @@
     <div class="example-form">
       <mat-form-field>
         <mat-label>Giới tính</mat-label>
-        <mat-select>
+        <mat-select name="partnerGender" id="partnerGender" formControlName="partnerGender" required>
           <mat-option *ngFor="let gender of genders; let i = index" [value]="i">
             {{gender}}
           </mat-option>
         </mat-select>
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Tuổi">
+        <mat-error *ngIf="userProfileForm?.controls?.partnerGender?.errors?.required">This field is required</mat-error>
       </mat-form-field>
 
       <div class="example-full-width">
+        <mat-label>Tuổi: </mat-label>
+        <p class="d-inline">{{ userProfileForm.value.partnerAge[0] }}
+          <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/></svg>
+          </span>
+          {{ userProfileForm.value.partnerAge[1] }}</p>
+        <ng5-slider [options]="optionsRange" formControlName="partnerAge"></ng5-slider>
+      </div>
+
+      <div class="example-full-width">
         <mat-label>Khoảng cách: {{distance || 0}} km</mat-label>
-        <ng5-slider [(value)]="distance" [options]="options"></ng5-slider>
+        <ng5-slider [(value)]="distance" (valueChange)="setValue($event)" [options]="options"></ng5-slider>
       </div>
     </div>
   </mat-card>

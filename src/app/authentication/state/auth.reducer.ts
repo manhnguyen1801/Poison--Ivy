@@ -6,29 +6,34 @@ export interface State extends fromRoot.State {
     auth: AuthState;
 }
 export interface AuthState {
-    username: string;
+    userId: string;
     token: string;
     currentUser;
 }
 
 const initialState: AuthState = {
-    username: undefined,
+    userId: undefined,
     token: undefined,
     currentUser: undefined
 };
+const getMessengerFeatureState = createFeatureSelector<AuthState>('auth');
+export const getUserId = createSelector(
+  getMessengerFeatureState,
+  state => state.userId
+);
 
 export function authReducer(state = initialState, action: AuthActions): AuthState {
     switch (action.type) {
       case AuthActionTypes.LoginSuccessful:
         return {
           ...state,
-          username: action.payload.userName,
+          userId: action.payload.userId,
           token: action.payload.access_token,
         };
       case AuthActionTypes.Logout:
         return {
           ...state,
-          username: null,
+          userId: null,
           token: null,
           currentUser: null
         };
