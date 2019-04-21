@@ -1,18 +1,32 @@
-<h1 *ngIf="(authService.user | async)">Welcome {{ (authService.user | async)?.email }}!</h1>
-)
-<div *ngIf="!(authService.user | async)">
-  <input type="text" [(ngModel)]="email" placeholder="email">
-  <input type="password" [(ngModel)]="password" placeholder="email">
+<div class="login-form">
+  <form class="form" [formGroup]="authenForm">
+    <h1 class="login-form-title">Welcome {{ (authService.user | async)?.email }}!</h1>
+    <div *ngIf="!(authService.user | async)">
+      <div class="field-group">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Tên" name="name" type="text" formControlName="email">
+          <mat-error *ngIf="authenForm?.controls?.name?.errors?.required">This field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Mật khẩu" name="password" type="password" formControlName="password">
+            <mat-error *ngIf="authenForm?.controls?.password?.errors?.required">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <!-- <input type="text" [(ngModel)]="email" placeholder="email">
+      <input type="password" [(ngModel)]="password" placeholder="email"> -->
+    
+      <button mat-raised-button color="primary" (click)="login()" [disabled]="authenForm.invalid">
+        Login
+      </button>
+      <div class="text-center p-t-115">
+          <span class="txt1">
+            Don’t have an account?
+          </span>
 
-  <button (click)="signup()" [disabled]="!email || !password">
-    Signup
-  </button>
-
-  <button (click)="login()" [disabled]="!email || !password">
-    Login
-  </button>
+          <a class="txt2" [routerLink]="['/register']">
+            Sign Up
+          </a>
+        </div>
+    </div>
+  </form>
 </div>
-
-<button (click)="logout()" *ngIf="authService.user | async">
-  Logout
-</button>

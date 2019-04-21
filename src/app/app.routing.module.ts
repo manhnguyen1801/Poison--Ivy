@@ -6,10 +6,6 @@ import { UserProfileComponent } from '../app/user-profile/user-profile/user-prof
 
 const appRoutes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
     path: 'landing',
     children: [
       {
