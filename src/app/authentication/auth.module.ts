@@ -14,11 +14,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
-import { RegisterComponent } from './register/register.component';
 
 const authRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: '', component: LoginComponent }
 ];
 
@@ -40,8 +38,7 @@ const authRoutes: Routes = [
     MatButtonModule
   ],
   declarations: [
-    LoginComponent,
-    RegisterComponent
+    LoginComponent
   ],
   exports: [
   ],

@@ -1,5 +1,5 @@
 <div class="login-form">
-  <form class="form" [formGroup]="authenForm">
+  <form [hidden]="isSignup" class="form" [formGroup]="authenForm">
     <h1 class="login-form-title">Welcome {{ (authService.user | async)?.email }}!</h1>
     <div *ngIf="!(authService.user | async)">
       <div class="field-group">
@@ -23,8 +23,46 @@
           Don’t have an account?
         </span>
 
-        <a class="txt2" [routerLink]="['/register']">
+        <a class="txt2" href="" (click)="changeTab($event, 1)">
           Sign Up
+        </a>
+      </div>
+    </div>
+  </form>
+  <form [hidden]="!isSignup" class="form" [formGroup]="registerForm">
+    <div *ngIf="!(authService.user | async)">
+      <div class="field-group">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" name="name" type="text" formControlName="email">
+          <mat-error *ngIf="registerForm?.controls?.email?.errors?.required">This field is required</mat-error>
+          <mat-error *ngIf="registerForm?.controls?.email?.errors?.email">Your email address is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" name="password" type="password" formControlName="password">
+            <mat-error *ngIf="registerForm?.controls?.password?.errors?.required">This field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Reenter password" name="confirmPassword" type="password" formControlName="confirmPassword">
+            <mat-error *ngIf="registerForm?.controls?.confirmPassword?.errors?.required">This field is required</mat-error>
+            <mat-error *ngIf="registerForm?.controls?.confirmPassword?.errors?.mustMatch">
+              Passwords do not match
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <!-- <input type="text" [(ngModel)]="email" placeholder="email">
+      <input type="password" [(ngModel)]="password" placeholder="email"> -->
+    
+      <!-- <button mat-raised-button color="primary" (click)="signup()"> -->
+      <button mat-raised-button color="primary" (click)="signup()" [disabled]="registerForm.invalid">
+        Signup
+      </button>
+      <div class="text-center p-t-115">
+        <span class="txt1">
+          Back to
+        </span>
+
+        <a class="txt2" href="" (click)="changeTab($event, 0)">
+          Login
         </a>
       </div>
     </div>
