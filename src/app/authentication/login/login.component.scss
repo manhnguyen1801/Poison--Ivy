@@ -1,48 +1,4 @@
-.login-form {
-    height: 100vh;
-    display: flex;
-    position: fixed;
-    width: 100vw;
-    background: white;
-    z-index: 2;
-    padding: 0 20px;
-    background: #f2f2f2;
 
-    .form {
-        padding: 77px 25px 33px 25px;
-        width: 390px;
-        background: #fff;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-        -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-        -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-        -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-        margin: 150px auto;
-    }
-
-    button {
-        width: 100%;
-        display: block;
-        margin: auto;
-        margin-bottom: 150px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    .login-form-title {
-        text-align: center;
-    }
-    .example-full-width {
-        margin-bottom: 0;
-        mat-slider {
-            width: 100%;
-        }
-    }
-}
 
 .mat-form-field {
     width: 100%;
