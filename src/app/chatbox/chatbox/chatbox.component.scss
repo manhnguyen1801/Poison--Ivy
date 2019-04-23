@@ -1,0 +1,107 @@
+.chatbox {
+    &-wrap {
+        width: 500px;
+    }
+    &__body {
+        &__message-list {
+            margin-bottom: 25px;
+            &__message {
+                margin-bottom: 5px;
+                
+                span {
+                    font-size: 14px;
+                    color: #fff;
+                    padding: 5px 10px;
+                    min-width: 15px;
+                    max-width: 164px;
+                    width: fit-content;
+                    overflow-wrap: break-word;
+                    border-radius: 10px;
+                    line-height: 2;
+                }
+                
+                &--mine {
+                    text-align: right;
+                    
+                    span {
+                        padding-left: 15px;
+                        background-color: #0fb6f9;
+                        border-bottom-left-radius: 48px;
+                        border-top-left-radius: 48px;
+                    }
+                }
+                
+                &--yours {
+                    img {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 100%;
+                        margin-right: 10px;
+                    }
+                    span {
+                        padding-right: 15px;
+                        background-color: #c6cacc;
+                        color: #000;
+                        border-bottom-right-radius: 48px;
+                        border-top-right-radius: 48px;
+
+                    }
+                }
+            }
+        }
+
+        &__message-input {
+            position: relative;
+            border-top: 1px solid #dcdcdc;
+            input {
+                width: 100%;
+                border: none;
+                line-height: 50px;
+                padding: 0 20px;
+                padding-right: 90px;
+                
+                label {
+                    top: 50%;
+                }
+            }
+
+            button {
+                position: absolute;
+                background: #efeded;
+                color: white;
+                border: none;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 10px;
+                border-radius: 20px;
+                padding: 5px 15px;
+
+                &.active {
+                    background-color: #c6cacc;
+                }
+            }
+
+            .mat-form-field-label-wrapper {
+                label {
+                    top: 50% !important;
+                }
+            }
+        }
+    }
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.example-full-width {
+    width: 100%;
+}
+
+.mat-form-field-appearance-legacy {
+  .mat-form-field-label {
+    top: 50% !important;
+  }
+}

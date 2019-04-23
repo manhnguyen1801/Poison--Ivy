@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/authentication/auth.service';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-chatbox',

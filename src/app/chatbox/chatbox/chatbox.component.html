@@ -1,6 +1,36 @@
 <p>
   chatbox works!
 </p>
+<section class="chatbox">
+  <div class="chatbox-wrap">
+    <div class="chatbox__head"></div>
+    <div class="chatbox__body">
+      <div class="chatbox__body__message-list">
+        <div class="chatbox__body__message-list__message chatbox__body__message-list__message--mine">
+          <span>Hello</span>
+        </div>
+        <div class="chatbox__body__message-list__message chatbox__body__message-list__message--mine">
+          <span>Hello</span>
+        </div>
+        <div class="chatbox__body__message-list__message chatbox__body__message-list__message--mine">
+          <span>Hello</span>
+        </div>
+        <div class="chatbox__body__message-list__message chatbox__body__message-list__message--yours">
+          <img src="https://www.w3schools.com/howto/img_avatar.png" alt="">
+          <span>Hi</span>
+        </div>
+      </div>
+      <div class="chatbox__body__message-input">
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Input your message">
+          </mat-form-field>
+        </form>
+        <button type="submit">Send</button>
+      </div>
+    </div>
+  </div>
+</section>
 <button (click)="logout()" *ngIf="authService.user | async">
   Logout
 </button>
