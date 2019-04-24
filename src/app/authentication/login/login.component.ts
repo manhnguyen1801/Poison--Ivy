@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.store.dispatch(new authActions.LoginSuccessful({
           userId: user.uid
         }));
-        this.router.navigate(['/landing/chatbox']);
+        this.router.navigate(['/landing/find-friends']);
       } else {
         this.router.navigate(['/login']);
       }
