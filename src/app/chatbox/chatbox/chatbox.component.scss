@@ -1,6 +1,11 @@
 .chatbox {
     &-wrap {
-        width: 500px;
+        max-width: 700px;
+        display: block;
+        margin: auto;
+        padding: 15px;
+        border: 1px solid #f1f1f1;
+        border-radius: 5px;
     }
     &__body {
         &__message-list {
@@ -57,7 +62,6 @@
                 width: 100%;
                 border: none;
                 line-height: 50px;
-                padding: 0 20px;
                 padding-right: 90px;
                 
                 label {
@@ -91,8 +95,6 @@
 }
 
 .example-form {
-    min-width: 150px;
-    max-width: 500px;
     width: 100%;
 }
   
