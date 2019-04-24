@@ -1,0 +1,32 @@
+.find-friends__card {
+    max-width: 390px;
+    padding: 15px;
+    display: block;
+    margin: auto;
+
+    .image-slide {
+        width: 100%;
+    }
+
+    mat-card {
+        padding: 10px;
+    }
+
+}
+.find-friends__controls__button {
+    display: inline-flex;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.swiper-slide {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.swiper-container {
+    height: 400px;
+}

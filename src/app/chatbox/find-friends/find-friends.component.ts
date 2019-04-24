@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'app-find-friends',
@@ -15,6 +16,16 @@ export class FindFriendsComponent implements OnInit {
     'https://placeimg.com/300/300/nature/3',
     'https://placeimg.com/300/300/nature/1',
   ];
+
+  public config: SwiperConfigInterface = {
+    direction: 'horizontal',
+    slidesPerView: 1,
+    keyboard: true,
+    mousewheel: true,
+    scrollbar: false,
+    navigation: true,
+    pagination: false
+  };
 
   constructor() { }
 
