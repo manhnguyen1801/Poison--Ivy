@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AuthService } from '../app/authentication/auth.service';
 import * as firebase from 'firebase';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +16,14 @@ export class AppComponent implements OnInit {
   public lat;
   public lng;
   avatar;
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   // getLocation() {

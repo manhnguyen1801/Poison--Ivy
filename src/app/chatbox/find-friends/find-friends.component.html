@@ -3,7 +3,7 @@
 </p>
 <div class="find-friends__card">
   <mat-card>
-    <swiper class="swiper-container" [config]="config" (indexChange)="onIndexChange($event)" fxFlex="auto">
+    <swiper class="swiper-container" [config]="config" fxFlex="auto">
       <div *ngFor="let slide of images" class="swiper-slide" [ngStyle]="{'background-image': 'url(' + slide + ')'}">
       </div>
     </swiper>
