@@ -1,8 +1,7 @@
 
 
 .user-profile {
-    padding: 65px 10px 10px 10px;
-    max-width: 390px;
+    max-width: 300px;
     display: block;
     margin: auto;
 
@@ -23,6 +22,11 @@ mat-card {
 
 .mat-form-field {
     width: 100%;
+}
+
+.button-groups {
+    width: 100%;
+    text-align: right;
 }
 
 .example-full-width {

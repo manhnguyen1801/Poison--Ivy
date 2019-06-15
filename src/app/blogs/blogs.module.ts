@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from '../share/share.module';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import {MatSelectModule} from '@angular/material/select';
+import { UserProfileModule } from '../user-profile/user-profile.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatButtonModule,
     ReactiveFormsModule,
     ShareModule,
-    MatSelectModule
+    MatSelectModule,
+    UserProfileModule
   ]
 })
 

@@ -33,6 +33,7 @@ export class AppInterceptor implements HttpInterceptor {
                     reason: error && error.error.reason ? error.error.reason : '',
                     status: error.status
                 };
+                console.log(error);
                 // this.errorDialogService.openDialog(data);
                 return throwError(error);
             }));

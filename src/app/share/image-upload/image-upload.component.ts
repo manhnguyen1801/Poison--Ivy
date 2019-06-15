@@ -44,6 +44,7 @@ export class ImageUploadComponent implements OnInit {
       },
       (error) => {
         // upload failed
+        this.imageObjectChange.emit(null);
         console.log(error);
       },
       () => {
