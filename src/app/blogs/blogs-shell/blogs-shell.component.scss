@@ -1,0 +1,14 @@
+.blogs__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .item {
+        &--create {
+            width: 40%;
+        }
+
+        &--feed {
+            width: 60%;
+        }
+    }
+}

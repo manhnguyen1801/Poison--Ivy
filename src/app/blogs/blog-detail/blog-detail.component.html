@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-title>
+      {{blogData.title}}
+    </mat-card-title>
+    <mat-card-content>
+      {{blogData.description}}
+    </mat-card-content>
+    <div class="blog-image">
+      <img mat-card-image src="{{blogData.imageUrl}}">
+    </div>
+    <ul *ngIf="displayComments?.length" class="list-comment">
+      <li class="comment-item" *ngFor="let comment of displayComments.slice().reverse() ; let i = index">
+        <div class="avatar-icon">
+          <img src="{{comment.avatar}}" alt="">
+        </div>
+        {{comment?.comment}}
+      </li>
+    </ul>
+    <mat-form-field [formGroup]="commentForm" class="example-full-width">
+      <input (keyup.enter)="submit()" matInput placeholder="Comment here.." formControlName="comment" name="comment">
+    </mat-form-field>
+</mat-card>

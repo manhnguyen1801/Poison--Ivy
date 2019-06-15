@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import * as authActions from '../state/auth.action';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   isSignup: boolean;
 
-  constructor(public authService: AuthService, private store: Store<any>, private fb: FormBuilder, private router: Router) {
+  constructor(public authService: AuthService, private store: Store<any>, private fb: FormBuilder, private router: Router,
+    private db: AngularFireDatabase) {
     this.authenForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -32,10 +34,20 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.authService.user.subscribe(user => {
       if (user && user.uid) {
-        this.store.dispatch(new authActions.LoginSuccessful({
-          userId: user.uid
-        }));
-        this.router.navigate(['/landing/find-friends']);
+        const dataFireBaseUsersList = this.db.object('/usersList');
+        dataFireBaseUsersList.valueChanges().subscribe(users => {
+          this.store.dispatch(new authActions.SetUserList({
+            userList: users
+          }));
+          if (users) {
+          const currentUser = users[user.uid];
+          this.store.dispatch(new authActions.LoginSuccessful({
+            userId: user.uid,
+            user: currentUser
+          }));
+          this.router.navigate(['/landing/blogs']);
+          }
+        });
       } else {
         this.router.navigate(['/login']);
       }

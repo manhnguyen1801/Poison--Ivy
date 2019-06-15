@@ -1,0 +1,30 @@
+.blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+.blog-item {
+    width: 100%;
+    margin-right: 5px;
+    margin-bottom: 15px;
+
+    &:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    .image {
+        margin-top: 30px;
+    }
+}
+
+.order-button {
+    position: absolute;
+    right: 15px;
+    z-index: 2;
+    font-size: 14px;
+    top: 30px;
+
+    .logout {
+        margin-left: 15px;
+    }
+}

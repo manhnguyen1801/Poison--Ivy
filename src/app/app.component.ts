@@ -21,11 +21,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
-
   // getLocation() {
   //   if (navigator.geolocation) {
   //     navigator.geolocation.getCurrentPosition((position: Position) => {

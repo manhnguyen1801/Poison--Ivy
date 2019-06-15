@@ -9,12 +9,14 @@ export interface AuthState {
     userId: string;
     token: string;
     currentUser;
+    userList: Array<any>;
 }
 
 const initialState: AuthState = {
     userId: undefined,
     token: undefined,
-    currentUser: undefined
+    currentUser: undefined,
+    userList: null
 };
 const getMessengerFeatureState = createFeatureSelector<AuthState>('auth');
 export const getUserId = createSelector(
@@ -29,6 +31,7 @@ export function authReducer(state = initialState, action: AuthActions): AuthStat
           ...state,
           userId: action.payload.userId,
           token: action.payload.access_token,
+          currentUser: action.payload.user
         };
       case AuthActionTypes.Logout:
         return {
@@ -41,6 +44,11 @@ export function authReducer(state = initialState, action: AuthActions): AuthStat
         return {
           ...state,
           currentUser: { ...action.payload }
+        };
+      case AuthActionTypes.SetUserList:
+        return {
+          ...state,
+          userList: action.payload.userList
         };
     }
     return state;

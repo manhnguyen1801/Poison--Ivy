@@ -10,6 +10,7 @@ export class ImageUploadComponent implements OnInit {
   selectedImageUrl;
   uploadTask;
   imageObject;
+  defaultImage;
   @ViewChild('fileUpload') fileUpload: ElementRef;
   @Output() imageObjectChange = new EventEmitter();
   @Input() imgUrl: string;
@@ -18,6 +19,9 @@ export class ImageUploadComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.imgUrl);
+    if (!this.imgUrl) {
+      this.defaultImage = true;
+    }
     this.selectedImageUrl = this.imgUrl;
   }
 

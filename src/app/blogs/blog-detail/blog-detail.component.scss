@@ -1,0 +1,30 @@
+.blog-image {
+    margin-top: 30px;
+
+    img {
+        width: 100%;
+        pointer-events: none;
+    }
+}
+
+.list-comment {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.comment-item {
+    display: flex;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.avatar-icon {
+    margin-right: 10px;
+
+    img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }    
+}

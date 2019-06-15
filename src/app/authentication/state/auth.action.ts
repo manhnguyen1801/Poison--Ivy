@@ -13,6 +13,7 @@ export enum AuthActionTypes {
     GetCurrentUser = '[Auth] Get Current User',
     GetCurrentUserSuccessful = '[Auth] Get Current User Successful',
     GetCurrentUserFail = '[Auth] Get Current User Fail',
+    SetUserList = '[Auth] Set User List',
 }
 
 export class LoginPage implements Action {
@@ -60,6 +61,11 @@ export class GetCurrentUserFail implements Action {
     constructor(public payload: any) { }
 }
 
+export class SetUserList implements Action {
+    readonly type = AuthActionTypes.SetUserList;
+    constructor(public payload: any) { }
+}
+
 export type AuthActions = LoginPage
     | LoginSuccessful
     | LoginFail
@@ -70,4 +76,5 @@ export type AuthActions = LoginPage
     | ForgotPasswordFail
     | GetCurrentUser
     | GetCurrentUserSuccessful
-    | GetCurrentUserFail;
+    | GetCurrentUserFail
+    | SetUserList;

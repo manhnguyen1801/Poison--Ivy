@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-title>
+      Create your blog
+    </mat-card-title>
+    <form [formGroup]="createBlogForm">
+      <app-image-upload #fileUpload [imgUrl]="imageUrl" (imageObjectChange)='setImage($event)'></app-image-upload>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Blog Title" name="title" formControlName="title" required>
+        <mat-error *ngIf="createBlogForm?.controls?.title?.errors?.required">This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <textarea rows="4" matInput placeholder="Blog Description" name="description" formControlName="description"></textarea>
+      </mat-form-field>
+      <div class="button-groups">
+        <button mat-raised-button>Close</button>
+        <button mat-raised-button color="primary" (click)="saveData()">Save</button>
+      </div>
+    </form>
+</mat-card>

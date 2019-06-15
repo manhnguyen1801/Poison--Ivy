@@ -1,8 +1,8 @@
 
-  <div class="image-upload">
+  <div class="image-upload" [class.defaultImage]="defaultImage">
     <img src="{{selectedImageUrl}}" alt="">
     <input #fileUpload type="file" class="d-none" accept="image/*" (change)="uploadFile(fileUpload)"/>
     <div class="change__button" (click)="uploadAvatar()">
-      Sửa ảnh đại diện
+      Choose image
     </div>
   </div>

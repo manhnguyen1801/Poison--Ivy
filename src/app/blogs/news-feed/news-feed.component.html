@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title>
+      News feed
+    </mat-card-title>
+    <div class="blog-list">
+      <div class="order-button">
+        <mat-form-field>
+          <mat-label>Sort by</mat-label>
+          <mat-select [(value)]="selected" (selectionChange)="sortBy($event)">
+            <mat-option>None</mat-option>
+            <mat-option value="title">Name</mat-option>
+            <mat-option value="createdDate">Date</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button class="logout" mat-raised-button color="primary" (click)="logout()">Logout</button>
+      </div>
+      <app-blog-detail class="blog-item" *ngFor="let blog of displayList; let i = index" [blogData]="blog">
+      </app-blog-detail>
+    </div>
+</mat-card>
