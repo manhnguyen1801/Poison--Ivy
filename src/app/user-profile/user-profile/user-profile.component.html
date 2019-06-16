@@ -2,7 +2,7 @@
   <form class="user-profile" [formGroup]="userProfileForm">
     <app-image-upload *ngIf="userAvatarUrl" [imgUrl]="userAvatarUrl" (imageObjectChange)='setAvatar($event)'></app-image-upload>
       <mat-card-header>
-        <mat-card-title>Thông tin cá nhân</mat-card-title>
+        <mat-card-title>Personal Information</mat-card-title>
       </mat-card-header>
       <div class="example-form">
         <mat-form-field class="example-full-width">

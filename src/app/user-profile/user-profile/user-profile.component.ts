@@ -37,9 +37,9 @@ export class UserProfileComponent implements OnInit {
       age: ['', Validators.required],
       gender: ['', Validators.required],
       description: [''],
-      partnerGender: ['', Validators.required],
-      partnerAge: new FormControl([10, 80]),
-      distance: ['']
+      // partnerGender: ['', Validators.required],
+      // partnerAge: new FormControl([10, 80]),
+      // distance: ['']
     });
   }
 

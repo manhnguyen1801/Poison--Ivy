@@ -20,6 +20,12 @@ mat-card {
     margin-bottom: 5px;
 }
 
+::ng-deep {
+    .mat-card-header-text {
+        margin: 0 !important;
+    }
+}
+
 .mat-form-field {
     width: 100%;
 }
