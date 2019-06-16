@@ -10,9 +10,7 @@
     </div>
     <ul *ngIf="displayComments?.length" class="list-comment">
       <li class="comment-item" *ngFor="let comment of displayComments.slice().reverse() ; let i = index">
-        <div class="avatar-icon">
-          <img src="{{comment.avatar}}" alt="">
-        </div>
+        <span class="user-name">{{comment?.userName}}</span>
         {{comment?.comment}}
       </li>
     </ul>

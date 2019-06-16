@@ -44,7 +44,7 @@ export class BlogDetailComponent implements OnInit {
                 const commentUser = this.userList[comment.userId];
                 return commentUser ? {
                   ...comment,
-                  avatar: commentUser.avatarUrl
+                  userName: commentUser.name
                 } : comment;
               });
               console.log(this.displayComments);
